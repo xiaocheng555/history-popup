@@ -57,7 +57,7 @@ import HistoryDrawer from '../components/HistoryDrawer.vue'
 import HistoryDialog from '../components/HistoryDialog.vue'
 import HistoryAntDrawer from '../components/HistoryAntDrawer.vue'
 import HistoryAntModal from '../components/HistoryAntModal.vue'
-import Demo from './Demo'
+import Demo from './Demo.vue'
 
 const visible = ref(false)
 const visible2 = ref(false)

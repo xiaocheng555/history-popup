@@ -2,7 +2,7 @@ import { ref, watch, onBeforeMount, Ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 
 export interface Option {
-  history: Ref<object>, // URL上的记录
+  history: Ref, // URL上的记录
   dialogVisible: Ref<boolean>, // 控制弹窗显示
   auto?: boolean, // 初次渲染，如果url上存在记录则自动打开
   onAutoOpen?: Function, // 自动打开回调

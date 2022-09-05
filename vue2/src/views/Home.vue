@@ -60,6 +60,7 @@ import HistoryAntModal from '../components/HistoryAntModal.vue'
 import Demo from './Demo.vue'
 
 export default {
+  name: 'home',
   components: {
     HistoryDrawer,
     HistoryDialog,
