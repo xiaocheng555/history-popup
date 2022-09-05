@@ -1,1 +1,0 @@
-import{d as n,u as a,b as s,k as c,m as u,f as r,n as _,h as l,q as p}from"./index.de4f4679.js";const d=_("h1",null,"\u8FC7\u6E21\u9875\u9762",-1),i=p("\u8FD4\u56DE"),b=n({__name:"A",setup(m){const e=a();function t(){e.back()}return(f,h)=>{const o=l("el-button");return s(),c("div",null,[d,u(o,{type:"primary",onClick:t},{default:r(()=>[i]),_:1})])}}});export{b as default};
