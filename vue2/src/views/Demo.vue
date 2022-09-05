@@ -2,16 +2,28 @@
   <div>
     <h2>Demo</h2>
     <div>
-      <table v-loading="loading" border="1" style="width: 100%;">
-        <tr v-for="row in list">
-          <td>{{row.id}}</td>
-          <td>{{row.name}}</td>
-          <td>{{row.desc}}</td>
-          <td>
+      <el-table
+        v-loading="loading"
+        :data="list"
+        style="width: 100%">
+        <el-table-column
+          prop="id"
+          label="id">
+        </el-table-column>
+        <el-table-column
+          prop="name"
+          label="姓名">
+        </el-table-column>
+        <el-table-column
+          prop="desc"
+          label="详情">
+        </el-table-column>
+        <el-table-column label="操作">
+          <template v-slot="{row}">
             <el-link type="primary" @click="onEdit(row)">详情</el-link>
-          </td>
-        </tr>
-      </table>
+          </template>
+        </el-table-column>
+      </el-table>
     </div>
     
     <HistoryDrawer 
@@ -35,7 +47,7 @@
 import HistoryDrawer from '../components/HistoryDrawer.vue'
 
 export default {
-  name: 'Demo',
+  name: 'demo',
   components: {
     HistoryDrawer
   },

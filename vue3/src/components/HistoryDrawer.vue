@@ -49,8 +49,8 @@ const { firstOpen } = useHistoryPopup({
   history: computed(() => props.history),
   auto: props.auto,
   dialogVisible: dialogVisible,
-  onAutoOpen: emit('autoOpen'),
-  onAutoOpen: emit('autoClose')
+  onAutoOpen: () => emit('autoOpen'),
+  onAutoClose: () => emit('autoClose')
 })
 </script>
 
