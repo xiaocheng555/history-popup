@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cd v2 && npm run build && cd ../v3 && npm run build",
+    "deploy": "node script/deploy",
+    "publish": "npm run build && node script/deploy"
   },
   "repository": {
     "type": "git",
@@ -15,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/xiaocheng555/history-popup/issues"
   },
-  "homepage": "https://github.com/xiaocheng555/history-popup#readme"
+  "homepage": "https://github.com/xiaocheng555/history-popup#readme",
+  "devDependencies": {
+    "fs-extra": "^10.1.0",
+    "gh-pages": "^4.0.0"
+  }
 }
