@@ -49,6 +49,9 @@
     
     <el-divider></el-divider>
     <Demo></Demo>
+    
+    <el-divider></el-divider>
+    <router-link to="/Back">返回上一页测试</router-link>
   </div>
 </template>
 

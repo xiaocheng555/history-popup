@@ -55,7 +55,7 @@ export default {
         // 两种清除url上history方法：
         // （1）如果有返回记录，则go(-1)后退清除history；
         // （2）如果没有则必须通过removeHistory来手动清除history（router.replace重置query上的history参数）
-        if (this.hasOpenRecord) {
+        if (this.hasBackRecord()) {
           this.$router.go(-1)
         } else {
           this.removeHistory()
@@ -66,6 +66,40 @@ export default {
       this.firstOpen = false
       this.autoTriggleClose = false
       this.hasOpenRecord = false
+    },
+    
+    // 是否正确的返回路径（该方法只支持vue-router@4）
+    // 当前路由的query和返回路由的query参数相减，刚好是history数据，说明是正确的返回路径，则可以通过router.go(-1)返回上一页来消除query上的history数据
+    hasBackRecord () {
+      // vue-router@4 通过window.history.state 能获取路由的记录信息
+      // vue-router@3 通过extendRouterHistoryState方法扩展出路由的记录信息
+      const state = window.history.state
+      if ('back' in state) {
+        if (!state.back) return false
+        
+        const backRouteData = this.$router.resolve(state.back || '') // 解析出返回路由
+        const backRoute = (backRouteData || {}).route
+        if (!backRoute) return false
+        if (backRoute.path === this.$route.path) {
+          const backQuery = backRoute.query 
+          const curQuery = { ...this.$route.query}
+          
+          /* 当前路由的query和返回路由的query参数相减，刚好是history数据 */
+          for (let key in backQuery) {
+            if (!curQuery[key]) return false
+            delete curQuery[key]
+          }
+          for (let key in this.history) {
+            if (!curQuery[key]) return false
+            delete curQuery[key]
+          }
+          return Object.keys(curQuery).length === 0
+        }
+        return false
+      } else {
+        // 没有路由的记录信息，则通过hasOpenRecord来判断
+        return this.hasOpenRecord
+      }
     },
 
     // 路由query上有history数据

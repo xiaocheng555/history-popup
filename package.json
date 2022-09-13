@@ -1,0 +1,19 @@
+{
+  "name": "hash-popup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiaocheng555/history-popup.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xiaocheng555/history-popup/issues"
+  },
+  "homepage": "https://github.com/xiaocheng555/history-popup#readme"
+}

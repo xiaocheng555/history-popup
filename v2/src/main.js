@@ -10,6 +10,22 @@ Vue.component(Drawer.name, Drawer)
 Vue.component(Modal.name, Modal)
 Vue.use(ElementUI)
 
+// history.state 里记录是否有返回页面
+let once = true
+function recordHasBack (router) {
+  router.afterEach(() => {
+    console.log('recordHasBack')
+    if (typeof window.history.state?.hasBack !== 'boolean') {
+      history.replaceState({
+        ...history.state,
+        hasBack: once ? false : true
+      }, '')
+    }
+    once = false
+  })
+}
+recordHasBack(router)
+
 new Vue({
   router,
   render: h => h(App)
