@@ -1,4 +1,4 @@
-// 扩展路由历史记录的状态信息
+// 扩展路由历史记录的状态信息【支持版本vue-router@3.6.4，版本不能太低】
 export function extendRouterHistoryState (router) {
   // 设置history.state的值
   function setHistoryState (state) {
